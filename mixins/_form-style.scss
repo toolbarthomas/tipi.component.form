@@ -16,7 +16,7 @@
 ) {
 	#{$inputs},
 	textarea {
-		#{$selector} {
+		&#{$selector} {
 			@if $background-color != false {
 				background-color: $background-color;
 			}
