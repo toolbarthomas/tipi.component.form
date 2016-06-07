@@ -119,4 +119,10 @@
 		min-height: $textarea-height;
 		height: auto;
 	}
+
+	.form-group {
+		+ .form-group {
+			margin-top: $form-group-gutter;
+		}
+	}
 }
