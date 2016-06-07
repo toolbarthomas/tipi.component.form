@@ -1,5 +1,5 @@
 @mixin form-style(
-	$selector: '&',
+	$selector: null,
 	$background-color: false,
 	$background-color--hover: false,
 	$background-color--focus: false,
