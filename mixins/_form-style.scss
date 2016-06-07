@@ -1,0 +1,73 @@
+@mixin form-style(
+	$selector: '&',
+	$background-color: false,
+	$background-color--hover: false,
+	$background-color--focus: false,
+	$color: false,
+	$color--hover: false,
+	$color--focus: false,
+	$border: false,
+	$border-color--hover: false,
+	$border-color--focus: false,
+	$border-radius: false,
+	$box-shadow: false,
+	$box-shadow--hover: false,
+	$box-shadow--focus: false
+) {
+	#{$inputs},
+	textarea {
+		#{$selector} {
+			@if $background-color != false {
+				background-color: $background-color;
+			}
+
+			@if $color != false {
+				color: $color;
+			}
+
+			@if $border != false {
+				border: $border;
+			}
+
+			@if $border-radius != false {
+				border-radius: $border-radius;
+			}
+
+			.no-touchevents &:hover {
+				@if $background-color--hover != false {
+					background-color: $background-color--hover;
+				}
+
+				@if $color--hover != false {
+					color: $color--hover;
+				}
+
+				@if $border-color--hover != false {
+					border-color: $border-color--hover;
+				}
+
+				@if $box-shadow--hover != false {
+					box-shadow: $box-shadow--hover;
+				}
+			}
+
+			&:focus {
+				@if $background-color--focus != false {
+					background-color: $background-color--focus;
+				}
+
+				@if $border-color--focus != false {
+					border-color: $border-color--focus;
+				}
+
+				@if $color--focus != false {
+					color: $color--focus;
+				}
+
+				@if $box-shadow--focus != false {
+					box-shadow: $box-shadow--focus;
+				}
+			}
+		}
+	}
+}

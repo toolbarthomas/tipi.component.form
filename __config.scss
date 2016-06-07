@@ -1,0 +1,40 @@
+$labels: (
+	'label',
+	'.label'
+);
+
+$label-font-family: 	false !default;
+$label-font-weight: 	700 !default;
+$label-font-style: 		normal !default;
+$label-line-height: 	1.2em !default;
+
+$label-margin-top: 		0.44em !default;
+$label-margin-bottom: 	0.44em !default;
+
+$inputs: (
+	'.input',
+	'input[type="color"]',
+	'input[type="date"]',
+	'input[type="datetime"]',
+	'input[type="datetime-local"]',
+	'input[type="email"]',
+	'input[type="month"]',
+	'input[type="number"]',
+	'input[type="password"]',
+	'input[type="search"]',
+	'input[type="tel"]',
+	'input[type="text"]',
+	'input[type="time"]',
+	'input[type="url"]',
+	'input[type="week"]'
+);
+
+$input-font-family: 	false !default;
+$input-font-weight: 	400 !default;
+$input-font-style: 		normal !default;
+$input-transitions:		true !default;
+$input-margin-bottom:	15px !default;
+$input-height:			32px !default;
+$input-gutter:			14px !default;
+
+$textarea-height:		200px !default;

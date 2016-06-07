@@ -1,0 +1,48 @@
+@mixin placeholder-style(
+	$selector: null,
+	$color: false,
+	$font-family: false
+) {
+
+	#{$selector}::-webkit-input-placeholder {
+		@if $color != false {
+			color: $color;
+		}
+		@if $font-family != false {
+			font-family: $font-family;
+		}
+
+		@if $selector == null {
+			opacity: 1;
+			font-weight: inherit;
+		}
+	}
+
+	#{$selector}::-moz-placeholder {
+		@if $color != false {
+			color: $color;
+		}
+		@if $font-family != false {
+			font-family: $font-family;
+		}
+
+		@if $selector == null {
+	   		opacity: 1;
+			font-weight: inherit;
+		}
+	}
+
+	#{$selector}:-ms-input-placeholder {
+		@if $color != false {
+			color: $color;
+		}
+		@if $font-family != false {
+			font-family: $font-family;
+		}
+
+		@if $selector == null {
+	   		opacity: 1;
+			font-weight: inherit;
+		}
+	}
+}

@@ -1,0 +1,122 @@
+@import "mixins/form-style";
+@import "mixins/placeholder-style";
+
+@mixin core_form {
+	#{$labels} {
+		display: block;
+		font-weight: $label-font-weight;
+
+		margin-top: $label-margin-top;
+		margin-bottom: $label-margin-bottom;
+
+		&:first-child,
+		&:only-child {
+			margin-top: 0;
+		}
+
+		&:only-child {
+			margin-bottom: 0;
+		}
+
+		@if $label-font-family != false {
+			font-family: $label-font-family;
+		}
+		@if $label-font-weight != false {
+			font-weight: $label-font-weight;
+		}
+		@if $label-font-style != false {
+			font-style: $label-font-style;
+		}
+		@if $label-line-height != false {
+			line-height: $label-line-height;
+		}
+
+		&[for] {
+			cursor: pointer;
+		}
+	}
+
+	#{$inputs} {
+		height: $input-height;
+
+		@if $input-gutter != false {
+			padding-left: $input-gutter;
+			padding-right: $input-gutter;
+		}
+	}
+
+	#{$inputs},
+	textarea {
+		display: block;
+		text-align: left;
+		width: 100%;
+		border: none;
+		border-radius: 0;
+		background: transparent;
+
+		@if $input-font-family != false {
+			font-family: $input-font-family;
+		}
+		@if $input-font-weight != false {
+			font-weight: $input-font-weight;
+		}
+		@if $input-font-style != false {
+			font-style: $input-font-style;
+		}
+
+		@if $input-transitions == true {
+			@include transition(
+				(color $transition-fast ease-out 0s),
+				(background $transition-fast ease-out 0s),
+				(border $transition-fast ease-out 0s),
+				(box-shadow $transition-fast 0s ease-out 0s)
+			);
+		}
+	}
+
+	.input {
+		position: relative;
+		text-overflow: ellipsis;
+		overflow: hidden;
+		white-space: nowrap;
+	}
+
+	#{$inputs},
+	select,
+	textarea {
+		margin-bottom: $input-margin-bottom;
+
+		&:only-child,
+		&:last-child, {
+			margin-bottom: 0;
+		}
+	}
+
+	input[type="password"] {
+		font-family: sans-serif;
+	}
+
+	input[type="checkbox"],
+	input[type="radio"] {
+		display: inline-block;
+
+		&:focus {
+			outline: thin dotted !important;
+			outline: 4px auto -webkit-focus-ring-color !important;
+			text-decoration: underline;
+		}
+	}
+
+	select {
+		font-family: sans-serif;
+	}
+
+	textarea {
+		@if $input-gutter != false {
+			padding: $input-gutter;
+		}
+
+		min-height: $textarea-height;
+		height: auto;
+	}
+}
