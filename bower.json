@@ -1,0 +1,15 @@
+{
+  "name": "tipi.component.form",
+  "homepage": "https://github.com/toolbarthomas/tipi.component.form",
+  "authors": [
+    "Thomas van der Velde <contact@toolbarthomas.net>"
+  ],
+  "description": "Default form styling for Tipi",
+  "keywords": [
+    "toolbarthomas",
+    "modular",
+    "form"
+  ],
+  "license": "MIT",
+  "main": "_tipi.component.form.scss"
+}
