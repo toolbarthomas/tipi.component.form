@@ -1,15 +1,15 @@
 $labels: (
 	'label',
 	'.label'
-);
+) !default;
 
-$label-font-family: 	false !default;
-$label-font-weight: 	700 !default;
-$label-font-style: 		normal !default;
-$label-line-height: 	1.2em !default;
+$label-font-family: 							false !default;
+$label-font-weight: 							700 !default;
+$label-font-style: 								normal !default;
+$label-line-height: 							1.2em !default;
 
-$label-margin-top: 		0.44em !default;
-$label-margin-bottom: 	0.44em !default;
+$label-margin-top: 								0.44em !default;
+$label-margin-bottom: 							0.44em !default;
 
 $inputs: (
 	'.input',
@@ -27,16 +27,35 @@ $inputs: (
 	'input[type="time"]',
 	'input[type="url"]',
 	'input[type="week"]'
-);
+) !default;
 
-$input-font-family: 	false !default;
-$input-font-weight: 	400 !default;
-$input-font-style: 		normal !default;
-$input-transitions:		true !default;
-$input-margin-bottom:	15px !default;
-$input-height:			32px !default;
-$input-gutter:			14px !default;
+$input-font-family: 							false !default;
+$input-font-weight: 							400 !default;
+$input-font-style: 								normal !default;
+$input-transitions:								true !default;
+$input-margin-bottom:							15px !default;
+$input-height:									32px !default;
+$input-gutter:									14px !default;
 
-$textarea-height:		200px !default;
+$textarea-height:								200px !default;
 
-$form-group-gutter: 	15px !default;
+$form-group-gutter: 							15px !default;
+
+$form-validation-error-color: 					#fd7963 !default;
+$form-validation-error-color-alt: 				#ffc9c0 !default;
+
+$form-validation-font-color-selectors: 			() !default;
+$form-validation-background-color-selectors: 	() !default;
+$form-validation-border-color-selectors: 		() !default;
+
+@if variable-exists(form-validation-font-color-selectors) {
+	$form-validation-font-color-selectors: append($form-validation-font-color-selectors, $labels);
+}
+
+@if variable-exists(form-validation-border-color-selectors) {
+	$form-validation-border-color-selectors: append($form-validation-border-color-selectors, ($inputs, 'textarea'));
+}
+
+@if variable-exists(form-validation-background-color-selectors) {
+	$form-validation-background-color-selectors: append($form-validation-border-color-selectors, ($inputs, 'textarea'));
+}

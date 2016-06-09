@@ -1,6 +1,3 @@
-@import "mixins/form-style";
-@import "mixins/placeholder-style";
-
 @mixin core_form {
 	#{$labels} {
 		display: block;
@@ -125,4 +122,25 @@
 			margin-top: $form-group-gutter;
 		}
 	}
+
+	@include form-group-validation-color(
+		$list: $form-validation-font-color-selectors,
+		$selector : '.form-group--error',
+		$property: color,
+		$color: $form-validation-error-color
+	);
+
+	@include form-group-validation-color(
+		$list: $form-validation-border-color-selectors,
+		$selector : '.form-group--error',
+		$property: border-color,
+		$color: $form-validation-error-color
+	);
+
+	@include form-group-validation-color(
+		$list: $form-validation-background-color-selectors,
+		$selector : '.form-group--error',
+		$property: background-color,
+		$color: $form-validation-error-color-alt
+	);
 }
