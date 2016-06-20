@@ -127,20 +127,83 @@
 		$list: $form-validation-font-color-selectors,
 		$selector : '.form-group--error',
 		$property: color,
-		$color: $form-validation-error-color
+		$color: $form-validation-error-label-color
 	);
 
 	@include form-group-validation-color(
 		$list: $form-validation-border-color-selectors,
 		$selector : '.form-group--error',
 		$property: border-color,
-		$color: $form-validation-error-color
+		$color: $form-validation-error-border-color
 	);
 
 	@include form-group-validation-color(
 		$list: $form-validation-background-color-selectors,
 		$selector : '.form-group--error',
 		$property: background-color,
-		$color: $form-validation-error-color-alt
+		$color: $form-validation-error-background-color
+	);
+
+	@include form-group-validation-color(
+		$list: $form-validation-font-color-selectors,
+		$selector : '.form-group--warning',
+		$property: color,
+		$color: $form-validation-warning-label-color
+	);
+
+	@include form-group-validation-color(
+		$list: $form-validation-border-color-selectors,
+		$selector : '.form-group--warning',
+		$property: border-color,
+		$color: $form-validation-warning-border-color
+	);
+
+	@include form-group-validation-color(
+		$list: $form-validation-background-color-selectors,
+		$selector : '.form-group--warning',
+		$property: background-color,
+		$color: $form-validation-warning-background-color
+	);
+
+	@include form-group-validation-color(
+		$list: $form-validation-font-color-selectors,
+		$selector : '.form-group--success',
+		$property: color,
+		$color: $form-validation-success-label-color
+	);
+
+	@include form-group-validation-color(
+		$list: $form-validation-border-color-selectors,
+		$selector : '.form-group--success',
+		$property: border-color,
+		$color: $form-validation-success-border-color
+	);
+
+	@include form-group-validation-color(
+		$list: $form-validation-background-color-selectors,
+		$selector : '.form-group--success',
+		$property: background-color,
+		$color: $form-validation-success-background-color
+	);
+
+	@include form-group-validation-color(
+		$list: $form-validation-font-color-selectors,
+		$selector : '.form-group--notice',
+		$property: color,
+		$color: $form-validation-notice-label-color
+	);
+
+	@include form-group-validation-color(
+		$list: $form-validation-border-color-selectors,
+		$selector : '.form-group--notice',
+		$property: border-color,
+		$color: $form-validation-notice-border-color
+	);
+
+	@include form-group-validation-color(
+		$list: $form-validation-background-color-selectors,
+		$selector : '.form-group--notice',
+		$property: background-color,
+		$color: $form-validation-notice-background-color
 	);
 }

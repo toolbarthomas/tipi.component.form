@@ -41,8 +41,21 @@ $textarea-height:								200px !default;
 
 $form-group-gutter: 							15px !default;
 
-$form-validation-error-color: 					#fd7963 !default;
-$form-validation-error-color-alt: 				#ffc9c0 !default;
+$form-validation-error-label-color: 			#fd7963 !default;
+$form-validation-error-border-color: 			#fd7963 !default;
+$form-validation-error-background-color: 		#fd7963 !default;
+
+$form-validation-success-label-color: 			#2ecc71 !default;
+$form-validation-success-border-color: 			#2ecc71 !default;
+$form-validation-success-background-color: 		#2ecc71 !default;
+
+$form-validation-warning-label-color: 			#f89406 !default;
+$form-validation-warning-border-color: 			#f89406 !default;
+$form-validation-warning-background-color: 		#f89406 !default;
+
+$form-validation-notice-label-color: 			#6bb9f0 !default;
+$form-validation-notice-border-color: 			#6bb9f0 !default;
+$form-validation-notice-background-color: 		#6bb9f0 !default;
 
 $form-validation-font-color-selectors: 			() !default;
 $form-validation-background-color-selectors: 	() !default;
