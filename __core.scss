@@ -1,4 +1,12 @@
 @mixin core_form {
+	fieldset {
+		@if $fieldset-margin-top != false {
+			+ fieldset {
+				margin-top: $fieldset-margin-top;
+			}
+		}
+	}
+
 	#{$labels} {
 		display: block;
 		font-weight: $label-font-weight;
