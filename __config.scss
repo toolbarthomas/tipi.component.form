@@ -74,3 +74,10 @@ $form-validation-border-color-selectors: 		() !default;
 @if variable-exists(form-validation-background-color-selectors) {
 	$form-validation-background-color-selectors: append($form-validation-border-color-selectors, ($inputs, 'textarea'));
 }
+
+$form-message-border: 							solid 1px !default;
+$form-message-border-radius:					false !default;
+$form-message-gutter:							15px !default;
+$form-message-background: 						false !default;
+$form-message-box-shadow: 						false !default;
+$form-message-margin-bottom:					30px !default;

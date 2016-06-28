@@ -1,0 +1,29 @@
+@mixin form-message-validation-color (
+	$selector: false,
+	$border-color: false,
+	$background-color: false,
+	$color: false,
+	$glyph-color: false
+) {
+	@if $selector != false {
+		.form-message {
+			&#{$selector} {
+				@if $border-color != false {
+					border-color: $border-color;
+				}
+
+				@if $background-color != false {
+					background-color: $background-color;
+				}
+
+				@if $color != false {
+					color: $color;
+				}
+
+				@if $glyph-color != false {
+					fill: $glyph-color;
+				}
+			}
+		}
+	}
+}

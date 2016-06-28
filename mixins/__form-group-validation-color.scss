@@ -1,4 +1,9 @@
-@mixin form-group-validation-color($list: false, $selector: false, $property: false, $color:false) {
+@mixin form-group-validation-color (
+	$list: false,
+	$selector: false,
+	$property: false,
+	$color: false
+) {
 	@if type-of($list) == 'list' and $selector != false and $property != false and $color != false {
 		@if length($list) > 0 {
 			.form-group {

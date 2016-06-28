@@ -214,4 +214,35 @@
 		$property: background-color,
 		$color: $form-validation-notice-background-color
 	);
+
+	.form-message {
+		@if $form-message-gutter != false {
+			padding: $form-message-gutter;
+		}
+
+		@if $form-message-border != false {
+			border: $form-message-border;
+		}
+
+		@if $form-message-border-radius != false {
+			border-radius: $form-message-border-radius;
+		}
+
+		@if $form-message-background != false {
+			background: $form-message-background;
+		}
+
+		@if $form-message-box-shadow != false {
+			box-shadow: $form-message-box-shadow;
+		}
+
+		@if $form-message-margin-bottom != false {
+			margin-bottom: $form-message-margin-bottom;
+
+			&:last-child,
+			&:only-child {
+				margin-bottom: 0;
+			}
+		}
+	}
 }
