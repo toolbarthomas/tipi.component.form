@@ -34,7 +34,11 @@ $inputs: (
 $input-font-family: 							false !default;
 $input-font-weight: 							400 !default;
 $input-font-style: 								normal !default;
+
 $input-transitions:								true !default;
+$input-transition-speed:						200ms !default;
+$input-transition-timing:						ease-in-out;
+
 $input-margin-bottom:							15px !default;
 $input-height:									32px !default;
 $input-gutter:									14px !default;

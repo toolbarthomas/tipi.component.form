@@ -71,10 +71,10 @@
 
 		@if $input-transitions == true {
 			@include transition(
-				(color $transition-fast ease-out 0s),
-				(background $transition-fast ease-out 0s),
-				(border $transition-fast ease-out 0s),
-				(box-shadow $transition-fast 0s ease-out 0s)
+				(color $input-transition-speed ease-out $input-transition-timing),
+				(background $input-transition-speed ease-out $input-transition-timing),
+				(border $input-transition-speed ease-out $input-transition-timing),
+				(box-shadow $input-transition-speed ease-out $input-transition-timing)
 			);
 		}
 	}
