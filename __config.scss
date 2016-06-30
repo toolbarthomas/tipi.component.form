@@ -43,36 +43,48 @@ $textarea-height:								200px !default;
 
 $form-group-gutter: 							15px !default;
 
-$form-validation-error-label-color: 			#fd7963 !default;
+$form-validation-enabled-for-font-color:		true !default;
+$form-validation-enabled-for-border-color:		true !default;
+$form-validation-enabled-for-background-color:	true !default;
+
+$form-validation-error-font-color: 				#fd7963 !default;
 $form-validation-error-border-color: 			#fd7963 !default;
 $form-validation-error-background-color: 		#fd7963 !default;
 
-$form-validation-success-label-color: 			#2ecc71 !default;
+$form-validation-success-font-color: 			#2ecc71 !default;
 $form-validation-success-border-color: 			#2ecc71 !default;
 $form-validation-success-background-color: 		#2ecc71 !default;
 
-$form-validation-warning-label-color: 			#f89406 !default;
+$form-validation-warning-font-color: 			#f89406 !default;
 $form-validation-warning-border-color: 			#f89406 !default;
 $form-validation-warning-background-color: 		#f89406 !default;
 
-$form-validation-notice-label-color: 			#6bb9f0 !default;
+$form-validation-notice-font-color: 			#6bb9f0 !default;
 $form-validation-notice-border-color: 			#6bb9f0 !default;
 $form-validation-notice-background-color: 		#6bb9f0 !default;
 
-$form-validation-font-color-selectors: 			() !default;
-$form-validation-background-color-selectors: 	() !default;
-$form-validation-border-color-selectors: 		() !default;
-
-@if variable-exists(form-validation-font-color-selectors) {
-	$form-validation-font-color-selectors: append($form-validation-font-color-selectors, $labels);
+@if variable-exists(form-validation-font-color-selectors) == false {
+	$form-validation-font-color-selectors: () !global;
 }
 
-@if variable-exists(form-validation-border-color-selectors) {
-	$form-validation-border-color-selectors: append($form-validation-border-color-selectors, ($inputs, 'textarea'));
+@if variable-exists(form-validation-background-color-selectors) == false {
+	$form-validation-background-color-selectors: () !global;
 }
 
-@if variable-exists(form-validation-background-color-selectors) {
-	$form-validation-background-color-selectors: append($form-validation-border-color-selectors, ($inputs, 'textarea'));
+@if variable-exists(form-validation-border-color-selectors) == false {
+	$form-validation-border-color-selectors: () !global;
+}
+
+@if $form-validation-enabled-for-font-color == true {
+	$form-validation-font-color-selectors: append($form-validation-font-color-selectors, $labels, comma);
+}
+
+@if $form-validation-enabled-for-border-color == true {
+	$form-validation-border-color-selectors: append($form-validation-border-color-selectors, ($inputs, 'textarea'), comma);
+}
+
+@if $form-validation-enabled-for-background-color == true {
+	$form-validation-background-color-selectors: append($form-validation-background-color-selectors, ($inputs, 'textarea'), comma);
 }
 
 $form-message-border: 							solid 1px !default;
