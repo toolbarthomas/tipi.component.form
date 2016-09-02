@@ -3,7 +3,7 @@
 	$color: false,
 	$font-family: false
 ) {
-	&#{$selector}::-webkit-input-placeholder {
+	#{$selector}::-webkit-input-placeholder {
 		@if $color != false {
 			color: $color;
 		}
@@ -18,7 +18,7 @@
 		}
 	}
 
-	&#{$selector}::-moz-placeholder {
+	#{$selector}::-moz-placeholder {
 		@if $color != false {
 			color: $color;
 		}
@@ -33,7 +33,7 @@
 		}
 	}
 
-	&#{$selector}:-ms-input-placeholder {
+	#{$selector}:-ms-input-placeholder {
 		@if $color != false {
 			color: $color;
 		}
