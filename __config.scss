@@ -31,9 +31,10 @@ $inputs: (
 	'input[type="week"]'
 ) !default;
 
-$input-font-family: 							false !default;
+$input-font-family: 							inherit !default;
 $input-font-weight: 							400 !default;
 $input-font-style: 								normal !default;
+$input-placeholder-color: 						#ededed !default;
 
 $input-transitions:								true !default;
 $input-transition-speed:						200ms !default;
