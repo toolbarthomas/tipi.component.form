@@ -51,7 +51,8 @@
 				}
 			}
 
-			&:focus {
+			&:focus,
+			.no-touchevents &:focus {
 				@if $background-color--focus != false {
 					background-color: $background-color--focus;
 				}
