@@ -72,10 +72,10 @@
 
 		@if $input-transitions == true {
 			@include transition(
-				(color $input-transition-speed ease-out $input-transition-timing),
-				(background $input-transition-speed ease-out $input-transition-timing),
-				(border $input-transition-speed ease-out $input-transition-timing),
-				(box-shadow $input-transition-speed ease-out $input-transition-timing)
+				(color $input-transition-speed $input-transition-timing $input-transition-delay),
+				(background $input-transition-speed $input-transition-timing $input-transition-delay),
+				(border $input-transition-speed $input-transition-timing $input-transition-delay),
+				(box-shadow $input-transition-speed $input-transition-timing $input-transition-delay)
 			);
 		}
 	}
@@ -118,12 +118,21 @@
 	}
 
 	textarea {
+		@if $textarea-height {
+			height: auto;
+		}
+
 		@if $input-gutter != false {
 			padding: $input-gutter;
 		}
 
-		min-height: $textarea-height;
-		height: auto;
+		@if $textarea-line-height != false {
+			line-height: $textarea-line-height;
+		}
+
+		@if $textarea-min-height {
+			min-height: $textarea-height;
+		}
 	}
 
 	@if $input-font-family != false and $input-placeholder-color != false {
