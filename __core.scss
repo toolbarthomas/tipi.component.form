@@ -144,4 +144,12 @@
 			@include placeholder-style(null, $input-placeholder-color, $input-font-family);
 		}
 	}
+
+	@if $form-group != false {
+		.form-group {
+			+ .form-group {
+				margin-top: $form-group-gutter;
+			}
+		}
+	}
 }

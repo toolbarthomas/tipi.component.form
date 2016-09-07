@@ -1,14 +1,11 @@
 @import "mixins/__form-style";
 @import "mixins/__placeholder-style";
-@import "mixins/__form-group-validation-color";
 @import "mixins/__form-message-validation-color";
 
-@import "extend/__form-group";
 @import "extend/__form-message";
 
 @import "__config";
 @import "__core";
 
 @include core_form;
-@include extend_form-group;
 @include extend_form-message;

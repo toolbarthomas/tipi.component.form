@@ -11,5 +11,8 @@
     "form"
   ],
   "license": "MIT",
-  "main": "_tipi.component.form.scss"
+  "main": "_tipi.component.form.scss",
+  "dependencies": {
+    "tipi.tool.form.validation": "^1.0.0",
+  }
 }
