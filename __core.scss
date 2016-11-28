@@ -58,6 +58,7 @@
 		border: none;
 		border-radius: 0;
 		background: transparent;
+		box-shadow: none;
 
 		@if $input-font-family != false {
 			font-family: $input-font-family;
@@ -96,6 +97,10 @@
 		&:last-child, {
 			margin-bottom: 0;
 		}
+
+		&:focus {
+			outline: none;
+		}
 	}
 
 	input[type="password"] {
@@ -132,16 +137,6 @@
 
 		@if $textarea-min-height {
 			min-height: $textarea-height;
-		}
-	}
-
-	@if $input-font-family != false and $input-placeholder-color != false {
-		textarea {
-			@include placeholder-style(null, $input-placeholder-color, $input-font-family);
-		}
-
-		input {
-			@include placeholder-style(null, $input-placeholder-color, $input-font-family);
 		}
 	}
 

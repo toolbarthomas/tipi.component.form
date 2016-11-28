@@ -1,50 +1,43 @@
 @mixin placeholder-style(
 	$selector: null,
-	$color: false,
-	$font-family: false
+	$color: inherit,
+	$font-family: inherit,
+	$font-weight: inherit,
+	$font-style: inherit
 ) {
 	#{$selector}::-webkit-input-placeholder {
-		@if $color != false {
-			color: $color;
-		}
+		opacity: 1;
 
-		@if $font-family != false {
-			font-family: $font-family;
-		}
-
-		@if $selector == null {
-			opacity: 1;
-			font-weight: inherit;
-		}
+		color: $color;
+		font-family: $font-family;
+		font-weight: $font-weight;
+		font-style: $font-style;
 	}
 
 	#{$selector}::-moz-placeholder {
-		@if $color != false {
-			color: $color;
-		}
+		opacity: 1;
 
-		@if $font-family != false {
-			font-family: $font-family;
-		}
-
-		@if $selector == null {
-	   		opacity: 1;
-			font-weight: inherit;
-		}
+		color: $color;
+		font-family: $font-family;
+		font-weight: $font-weight;
+		font-style: $font-style;
 	}
 
 	#{$selector}:-ms-input-placeholder {
-		@if $color != false {
-			color: $color;
-		}
+		opacity: 1;
 
-		@if $font-family != false {
-			font-family: $font-family;
-		}
+		color: $color;
+		font-family: $font-family;
+		font-weight: $font-weight;
+		font-style: $font-style;
+	}
 
-		@if $selector == null {
-	   		opacity: 1;
-			font-weight: inherit;
-		}
+	#{$selector}:-moz-placeholder {
+		opacity: 1;
+
+		color: $color;
+		font-family: $font-family;
+		font-weight: $font-weight;
+		font-style: $font-style;
 	}
 }
