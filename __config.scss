@@ -1,4 +1,14 @@
-$fieldset-margin-top: 							25px !default;
+$legends: (
+	'legend',
+	'.legend'
+) !default;
+
+$legend-font-family: 							false !default;
+$legend-font-weight: 							700 !default;
+$legend-font-style: 							normal !default;
+$legend-line-height: 							1.2em !default;
+$legend-margin-top: 							0.7em !default;
+$legend-margin-bottom: 							0.96em !default;
 
 $labels: (
 	'label',
@@ -9,37 +19,23 @@ $label-font-family: 							false !default;
 $label-font-weight: 							700 !default;
 $label-font-style: 								normal !default;
 $label-line-height: 							1.2em !default;
-
 $label-margin-top: 								0.44em !default;
 $label-margin-bottom: 							0.44em !default;
 
 $inputs: (
 	'.input',
-	'input[type="color"]',
-	'input[type="date"]',
-	'input[type="datetime"]',
-	'input[type="datetime-local"]',
 	'input[type="email"]',
-	'input[type="month"]',
 	'input[type="number"]',
 	'input[type="password"]',
 	'input[type="search"]',
 	'input[type="tel"]',
 	'input[type="text"]',
-	'input[type="time"]',
-	'input[type="url"]',
-	'input[type="week"]'
+	'input[type="url"]'
 ) !default;
 
 $input-font-family: 							inherit !default;
 $input-font-weight: 							400 !default;
 $input-font-style: 								normal !default;
-
-$input-transitions:								true !default;
-$input-transition-speed:						200ms !default;
-$input-transition-timing:						ease-in-out;
-$input-transition-delay:						0s;
-
 $input-margin-bottom:							15px !default;
 $input-height:									44px !default;
 $input-gutter:									14px !default;
@@ -48,12 +44,51 @@ $textarea-min-height:							200px !default;
 $textarea-height:								auto !default;
 $textarea-line-height:							1.6em !default;
 
-$form-group:									true !default;
-$form-group-gutter: 							15px !default;
+$fieldset-margin-top:							30px !default;
+$fieldset-margin-bottom:						30px !default;
 
-$form-border-selectors:							($inputs, 'textarea') !default;
-$form-background-selectors:						($inputs, 'textarea') !default;
-$form-font-selectors:							($labels) !default;
+$field-marker: (
+	'.field-marker'
+) !default;
+
+$field-marker-font-weight: 						normal !default;
+$field-marker-font-style: 						italic !default;
+
+$field-description: (
+	'.field-description'
+) !default;
+
+$field-description-font-weight: 				normal !default;
+$field-description-font-style: 					italic !default;
+$field-description-margin-top: 					5px !default;
+$field-description-margin-bottom: 				10px !default;
+
+$form-group:									('.form-group') !default;
+$form-group-gutter: 							20px !default;
+
+/* Validation */
+$form-border-selectors:							('textarea') !default;
+@if $inputs != false {
+	$form-border-selectors: append($form-border-selectors, $inputs, 'comma');
+}
+
+$form-background-selectors:						('textarea') !default;
+@if $inputs != false {
+	$form-background-selectors: append($form-background-selectors, $inputs, 'comma');
+}
+
+$form-font-selectors:							() !default;
+@if $labels != false {
+	$form-font-selectors: append($form-font-selectors, $labels, 'comma');
+}
+
+@if $legends != false {
+	$form-font-selectors: append($form-font-selectors, $legends, 'comma');
+}
+
+@if $field-description != false {
+	$form-font-selectors: append($form-font-selectors, $field-description, 'comma');
+}
 
 @if variable-exists(form-validation-border-selectors) {
 	$form-validation-border-selectors: append($form-validation-border-selectors, $form-border-selectors, 'comma');

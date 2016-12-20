@@ -1,43 +1,85 @@
 @mixin core_form {
-	fieldset {
-		@if $fieldset-margin-top != false {
-			+ fieldset {
-				margin-top: $fieldset-margin-top;
+	@if $legends != false {
+		#{$legends} {
+			display: block;
+
+			@if $legend-margin-top != false {
+				margin-top: $legend-margin-top;
+
+				&:only-child,
+				&:first-child {
+					margin-top: 0;
+				}
+			}
+
+			@if $legend-margin-bottom != false {
+				margin-bottom: $legend-margin-bottom;
+
+				&:only-child,
+				&:last-child {
+					margin-bottom: 0;
+				}
+			}
+
+			@if $legend-font-family != false {
+				font-family: $legend-font-family;
+			}
+
+			@if $legend-font-weight != false {
+				font-weight: $legend-font-weight;
+			}
+
+			@if $legend-font-style != false {
+				font-style: $legend-font-style;
+			}
+
+			@if $legend-line-height != false {
+				line-height: $legend-line-height;
 			}
 		}
 	}
 
-	#{$labels} {
-		display: block;
-		font-weight: $label-font-weight;
+	@if $labels != false {
+		#{$labels} {
+			display: block;
 
-		margin-top: $label-margin-top;
-		margin-bottom: $label-margin-bottom;
+			@if $label-margin-top != false {
+				margin-top: $label-margin-top;
 
-		&:first-child,
-		&:only-child {
-			margin-top: 0;
-		}
+				&:only-child,
+				&:first-child {
+					margin-top: 0;
+				}
+			}
 
-		&:only-child {
-			margin-bottom: 0;
-		}
+			@if $label-margin-bottom != false {
+				margin-bottom: $label-margin-bottom;
 
-		@if $label-font-family != false {
-			font-family: $label-font-family;
-		}
-		@if $label-font-weight != false {
-			font-weight: $label-font-weight;
-		}
-		@if $label-font-style != false {
-			font-style: $label-font-style;
-		}
-		@if $label-line-height != false {
-			line-height: $label-line-height;
-		}
+				&:only-child,
+				&:last-child {
+					margin-bottom: 0;
+				}
+			}
 
-		&[for] {
-			cursor: pointer;
+			@if $label-font-family != false {
+				font-family: $label-font-family;
+			}
+
+			@if $label-font-weight != false {
+				font-weight: $label-font-weight;
+			}
+
+			@if $label-font-style != false {
+				font-style: $label-font-style;
+			}
+
+			@if $label-line-height != false {
+				line-height: $label-line-height;
+			}
+
+			&[for] {
+				cursor: pointer;
+			}
 		}
 	}
 
@@ -47,6 +89,10 @@
 		@if $input-gutter != false {
 			padding-left: $input-gutter;
 			padding-right: $input-gutter;
+		}
+
+		&[disabled] {
+			cursor: not-allowed;
 		}
 	}
 
@@ -70,16 +116,22 @@
 		@if $input-font-style != false {
 			font-style: $input-font-style;
 		}
+	}
 
-		@if $input-transitions == true {
-			@include transition(
-				(color $input-transition-speed $input-transition-timing $input-transition-delay),
-				(background $input-transition-speed $input-transition-timing $input-transition-delay),
-				(border $input-transition-speed $input-transition-timing $input-transition-delay),
-				(box-shadow $input-transition-speed $input-transition-timing $input-transition-delay)
-			);
+	input {
+		&,
+		&[type="email"],
+		&[type="password"],
+		&[type="search"],
+		&[type="tel"],
+		&[type="text"],
+		&[type="url"] {
+			&[size] {
+				width: auto;
+			}
 		}
 	}
+
 
 	.input {
 		position: relative;
@@ -103,6 +155,24 @@
 		}
 	}
 
+	textarea {
+		@if $textarea-height {
+			height: auto;
+		}
+
+		@if $input-gutter != false {
+			padding: $input-gutter;
+		}
+
+		@if $textarea-line-height != false {
+			line-height: $textarea-line-height;
+		}
+
+		@if $textarea-min-height {
+			min-height: $textarea-height;
+		}
+	}
+
 	input[type="password"] {
 		font-family: sans-serif;
 	}
@@ -122,27 +192,88 @@
 		font-family: sans-serif;
 	}
 
-	textarea {
-		@if $textarea-height {
-			height: auto;
+	fieldset {
+		@if $fieldset-margin-top != false {
+			margin-top: $fieldset-margin-top;
+
+			&:only-child,
+			&:first-child {
+				margin-top: 0;
+			}
 		}
 
-		@if $input-gutter != false {
-			padding: $input-gutter;
+		@if $fieldset-margin-bottom != false {
+			margin-bottom: $fieldset-margin-bottom;
+
+			&:only-child,
+			&:last-child {
+				margin-bottom: 0;
+			}
+		}
+	}
+
+	@if $field-marker != false {
+		#{$field-marker} {
+			@if $field-marker-font-weight != false {
+				font-weight: $field-marker-font-weight;
+			}
+
+			@if $field-marker-font-style != false {
+				font-style: $field-marker-font-style;
+			}
+		}
+	}
+
+	@if $field-description != false {
+		#{$field-description} {
+			white-space: normal;
+
+			@if $field-description-font-weight != false {
+				font-weight: $field-description-font-weight;
+			}
+
+			@if $field-description-font-style != false {
+				font-style: $field-description-font-style;
+			}
+
+			@if $field-description-margin-top != false {
+				margin-top: $field-description-margin-top;
+
+				&:only-child,
+				&:first-child {
+					margin-top: 0;
+				}
+			}
+
+			@if $field-description-margin-bottom != false {
+				margin-bottom: $field-description-margin-bottom;
+
+				&:only-child,
+				&:last-child {
+					margin-bottom: 0;
+				}
+			}
 		}
 
-		@if $textarea-line-height != false {
-			line-height: $textarea-line-height;
-		}
+		@if $input-margin-bottom != false and $field-description-margin-top != false {
+			#{$inputs} {
+				+ #{$field-description} {
+					margin-top:  -$input-margin-bottom + $field-description-margin-top;
+					margin-bottom: $input-margin-bottom;
 
-		@if $textarea-min-height {
-			min-height: $textarea-height;
+					&:last-child {
+						margin-bottom: 0;
+					}
+				}
+			}
 		}
 	}
 
 	@if $form-group != false {
-		.form-group {
-			+ .form-group {
+		#{$form-group} {
+			position: relative;
+
+			+ #{$form-group} {
 				margin-top: $form-group-gutter;
 			}
 		}

@@ -7,30 +7,88 @@
 	<div class="wrapper">
 		<h1>Forms</h1>
 
-		<div class="form-message">
-			<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
-			tempor incididunt ut labore et dolore magna aliqua.</p>
-		</div>
+		<form action="post">
+			<fieldset>
+				<legend>Personal information</legend>
 
-		<div class="form-message form-message--error">
-			<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
-			tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
-			quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
-			consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
-			cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
-			proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
-		</div>
+				<div class="form-group">
+					<label for="basic-form-firstname">Firstname</label>
+					<input type="text" name="basic-form-firstname" id="basic-form-firstname" placeholder="John doe" />
+				</div>
 
+				<div class="form-group">
+					<label for="basic-form-insertion">Insertion</label>
+					<input type="text" name="basic-form-insertion" id="basic-form-insertion" />
+				</div>
 
+				<div class="form-group">
+					<label for="basic-form-lastname">Lastname</label>
+					<input type="text" name="basic-form-lastname" id="basic-form-lastname" disabled/>
+				</div>
+			</fieldset>
 
-		<div class="form-group">
-			<label for="">Label goes here</label>
-			<input type="text" placeholder="Input[text]" />
-		</div>
+			<fieldset>
+				<legend>Contact information</legend>
 
-		<div class="form-group form-group--error">
-			<label for="">Label goes here</label>
-			<textarea placeholder="Tag"></textarea>
-		</div>
+				<div class="form-group">
+					<label for="basic-form-street">Address line 1</label>
+					<input type="text" name="basic-form-street" id="basic-form-street" />
+				</div>
+
+				<div class="form-group">
+					<label for="basic-form-street2">Address line 2 <span class="field-marker">- optional</span></label>
+					<input type="text" name="basic-form-street2" id="basic-form-street2" />
+				</div>
+
+				<div class="form-group">
+					<div class="combined">
+						<div class="combined-aside">
+							<div class="form-group">
+								<label for="basic-form-street">Zip code</label>
+								<input type="text" name="basic-form-street" size="6" id="basic-form-street" />
+							</div>
+						</div>
+						<div class="combined-body">
+							<div class="form-group">
+								<label for="basic-form-street">City</label>
+								<input type="text" name="basic-form-street" id="basic-form-street" />
+							</div>
+						</div>
+					</div>
+				</div>
+			</fieldset>
+
+			<fieldset>
+				<legend>Account information</legend>
+
+				<div class="form-group">
+					<div class="row">
+						<div class="scol12 col6">
+							<label for="basic-form-username">Username</label>
+							<input type="text" name="basic-form-username" id="basic-form-username" />
+						</div>
+						<div class="scol12 col6">
+							<label for="basic-form-mail">Email</label>
+							<input type="email" name="basic-form-mail" id="basic-form-mail" />
+							<p class="field-description">You will receive all future messages with this emailaddress</p>
+						</div>
+					</div>
+				</div>
+
+				<div class="form-group">
+					<div class="row">
+						<div class="scol12 col6">
+							<label for="basic-form-password">Password</label>
+							<input type="text" name="basic-form-password" id="basic-form-password" />
+							<p class="field-description">Must be at least 8 characters long</p>
+						</div>
+						<div class="scol12 col6">
+							<label for="basic-form-mail">Password <span class="field-marker">- Retype</span></label>
+							<input type="email" name="basic-form-mail" id="basic-form-mail" />
+						</div>
+					</div>
+				</div>
+			</fieldset>
+		</form>
 	</div>
 </section>

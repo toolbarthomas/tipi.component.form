@@ -1,30 +1,41 @@
 @mixin form-style(
 	$selector: null,
-	$background-color: false,
-	$background-color--hover: false,
-	$background-color--focus: false,
-	$color: false,
-	$color--hover: false,
-	$color--focus: false,
 	$border: false,
 	$border-color--hover: false,
 	$border-color--focus: false,
+	$border-color--disabled: false,
 	$border-radius: false,
+	$border-radius--hover: false,
+	$border-radius--focus: false,
+	$border-radius--disabled: false,
+	$background: false,
+	$background--hover: false,
+	$background--focus: false,
+	$background--disabled: false,
 	$box-shadow: false,
 	$box-shadow--hover: false,
-	$box-shadow--focus: false
+	$box-shadow--focus: false,
+	$box-shadow--disabled: false,
+	$opacity: false,
+	$opacity--hover: false,
+	$opacity--focus: false,
+	$opacity--disabled: false,
+	$color: false,
+	$color--hover: false,
+	$color--focus: false,
+	$color--disabled: false,
+	$placeholder-color: false,
+	$font-family: false,
+	$font-weight: false,
+	$font-style: false,
+	$transitions: false,
+	$transition-speed: 200ms,
+	$transition-timing: ease-in-out,
+	$transition-delay: 0ms
 ) {
 	#{$inputs},
 	textarea {
 		&#{$selector} {
-			@if $background-color != false {
-				background-color: $background-color;
-			}
-
-			@if $color != false {
-				color: $color;
-			}
-
 			@if $border != false {
 				border: $border;
 			}
@@ -33,40 +44,158 @@
 				border-radius: $border-radius;
 			}
 
-			.no-touchevents &:hover {
-				@if $background-color--hover != false {
-					background-color: $background-color--hover;
-				}
+			@if $background != false {
+				background: $background;
+			}
 
-				@if $color--hover != false {
-					color: $color--hover;
-				}
+			@if $box-shadow != false {
+				box-shadow: $box-shadow;
+			}
 
+			@if $opacity != false {
+				opacity: $opacity;
+			}
+
+			@if $color != false {
+				color: $color;
+			}
+
+			@if $font-family != false {
+				font-family: $font-family;
+			}
+
+			@if $font-weight != false {
+				font-weight: $font-weight;
+			}
+
+			@if $font-style != false {
+				font-style: $font-style;
+			}
+
+			@if $transitions != false {
+				@include transition(
+					(border-color $transition-speed $transition-timing $transition-delay),
+					(border-radius $transition-speed $transition-timing $transition-delay),
+					(background $transition-speed $transition-timing $transition-delay),
+					(box-shadow $transition-speed $transition-timing $transition-delay),
+					(opacity $transition-speed $transition-timing $transition-delay),
+					(color $transition-speed $transition-timing $transition-delay)
+				);
+			}
+
+			.no-touchevents &:not([disabled]):hover {
 				@if $border-color--hover != false {
 					border-color: $border-color--hover;
+				}
+
+				@if $border-radius--hover != false {
+					border-radius: $border-radius--hover;
+				}
+
+				@if $background--hover != false {
+					background: $background--hover;
 				}
 
 				@if $box-shadow--hover != false {
 					box-shadow: $box-shadow--hover;
 				}
-			}
 
-			&:focus,
-			.no-touchevents &:focus {
-				@if $background-color--focus != false {
-					background-color: $background-color--focus;
+				@if $opacity--hover != false {
+					opacity: $opacity--hover;
 				}
 
+				@if $color--hover != false {
+					color: $color--hover;
+				}
+			}
+
+			&:not([disabled]):focus,
+			.no-touchevents &:not([disabled]):focus {
 				@if $border-color--focus != false {
 					border-color: $border-color--focus;
+				}
+
+				@if $border-radius--focus != false {
+					border-radius: $border-radius--focus;
+				}
+
+				@if $background--focus != false {
+					background: $background--focus;
+				}
+
+				@if $box-shadow--focus != false {
+					box-shadow: $box-shadow--focus;
+				}
+
+				@if $opacity--focus != false {
+					opacity: $opacity--focus;
 				}
 
 				@if $color--focus != false {
 					color: $color--focus;
 				}
+			}
 
-				@if $box-shadow--focus != false {
-					box-shadow: $box-shadow--focus;
+			&[disabled] {
+				@if $border-color--disabled != false {
+					border-color: $border-color--disabled;
+				}
+
+				@if $border-radius--disabled != false {
+					border-radius: $border-radius--disabled;
+				}
+
+				@if $background--disabled != false {
+					background: $background--disabled;
+				}
+
+				@if $box-shadow--disabled != false {
+					box-shadow: $box-shadow--disabled;
+				}
+
+				@if $opacity--disabled != false {
+					opacity: $opacity--disabled;
+				}
+
+				@if $color--disabled != false {
+					color: $color--disabled;
+				}
+			}
+		}
+
+		@if $placeholder-color != false {
+			@if $selector == null {
+				@at-root ::-webkit-input-placeholder {
+					color: $placeholder-color;
+				}
+
+				@at-root ::-moz-placeholder {
+					color: $placeholder-color;
+				}
+
+				@at-root :-ms-input-placeholder {
+					color: $placeholder-color;
+				}
+
+				@at-root :-moz-placeholder {
+					color: $placeholder-color;
+				}
+			}
+			@else {
+				&::-webkit-input-placeholder {
+					color: $placeholder-color;
+				}
+
+				&::-moz-placeholder {
+					color: $placeholder-color;
+				}
+
+				&:-ms-input-placeholder {
+					color: $placeholder-color;
+				}
+
+				&:-moz-placeholder {
+					color: $placeholder-color;
 				}
 			}
 		}
