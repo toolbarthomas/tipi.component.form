@@ -83,7 +83,8 @@
 				);
 			}
 
-			.no-touchevents &:not([disabled]):hover {
+			.no-touchevents &:not([disabled]):hover,
+			.no-touchevents &:not([readonly]):hover {
 				@if $border-color--hover != false {
 					border-color: $border-color--hover;
 				}
@@ -110,7 +111,9 @@
 			}
 
 			&:not([disabled]):focus,
-			.no-touchevents &:not([disabled]):focus {
+			&:not([readonly]):focus,
+			.no-touchevents &:not([disabled]):focus,
+			.no-touchevents &:not([readonly]):focus {
 				@if $border-color--focus != false {
 					border-color: $border-color--focus;
 				}
@@ -136,7 +139,8 @@
 				}
 			}
 
-			&[disabled] {
+			&[disabled],
+			&[readonly] {
 				@if $border-color--disabled != false {
 					border-color: $border-color--disabled;
 				}
